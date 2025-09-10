@@ -1,15 +1,7 @@
-# Movies Project (Vite App)
+# Movies Project 🎬
 
-This is the Vite-based React application for the Movies project.
+## 📦 Installation
+After cloning the repository, run:
 
-For full documentation and recent updates, see the root README in the repository.
-
-## Install
 ```bash
 npm install
-```
-
-## Run
-```bash
-npm run dev
-```
