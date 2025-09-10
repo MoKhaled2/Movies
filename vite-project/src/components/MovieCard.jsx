@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Link } from 'react-router-dom';
 
 export default function MovieCard({ movie }) {
   const imgBase = "https://image.tmdb.org/t/p/w300";
@@ -28,11 +29,13 @@ export default function MovieCard({ movie }) {
   return (
     <div className="card h-100 border-0 shadow-sm">
       <div className="position-relative">
-        <img
+     <Link to={`/movie/${movie.id}`}>
+     <img
           src={imgBase + movie.poster_path}
           className="card-img-top rounded"
           alt={movie.title}
         />
+     </Link>
 
         <div
           className="position-absolute"

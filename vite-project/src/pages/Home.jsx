@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
-import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -39,7 +38,7 @@ export default function Home() {
 
       <h3 className="mt-5 mb-3">Now Playing</h3>
 
-      <div className="row g-3" style={{ minHeight: "400px" }}>
+      <div className="row g-3 " style={{ minHeight: "400px" }}>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center w-100">
             <div className="spinner-border text-warning" role="status">
@@ -48,14 +47,14 @@ export default function Home() {
           </div>
         ) : (
           movies.map((movie) => (
-            <div className="col-6 col-md-3 col-lg-2" key={movie.id}>
+            <div className="col-12 col-sm-6 col-md-3 col-lg-2" key={movie.id}>
               <MovieCard movie={movie} />
             </div>
           ))
         )}
       </div>
       <Pagination page={page} setPage={setPage} />
-      <Toaster position="top-right" />
+    
     </div>
   );
 }
