@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
-import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
+  const [totalPages, setTotalPages] = useState(1);
   const apiKey = "714601e14e7fed0133bc898c6e24aacc";
 
   useEffect(() => {
@@ -18,6 +17,7 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results || []);
+        setTotalPages(data.total_pages || 1);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -54,8 +54,7 @@ export default function Home() {
           ))
         )}
       </div>
-      <Pagination page={page} setPage={setPage} />
-      <Toaster position="top-right" />
+       <Pagination page={page} setPage={setPage} totalPages={totalPages}/>
     </div>
   );
 }
