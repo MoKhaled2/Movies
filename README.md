@@ -1,42 +1,12 @@
-# Movies Project 🎬
+# React + Vite
 
-A React + Vite app to explore movies from TMDB, with a clean UI and watchlist feedback.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 📦 Installation
-After cloning the repository, run:
+Currently, two official plugins are available:
 
-```bash
-npm install
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ▶️ Run the App
-```bash
-npm run dev
-```
-Then open the local URL shown in your terminal.
+## Expanding the ESLint configuration
 
-## ✨ Features
-- Now Playing list with pagination
-- Movie details page with backdrop, poster, overview, genres, runtime, release date
-- Top billed cast grid and trailer link (YouTube)
-- Visual user score badge with color logic
-- Watchlist feedback via toast notifications
-- Responsive layout using Bootstrap 5
-
-## 🆕 Recent Updates
-- Fixed toast notifications behaviors and feedback styling
-- Create Info page with loading/error states, metadata, trailer, and cast
-- Responsive improvements across `Home`, `Navbar`, and `InfoPage`
-- Added Bootstrap JS bundle import for interactive components
-- Config tips to enable Bootstrap class IntelliSense in JSX
-
-## 👥 Team
-Updates implemented by Kareem Shalan.
-
-## 🛠 Tech Stack
-- React 19, React Router
-- Vite 7
-- Bootstrap 5, React Icons, React Hot Toast
-
-## 🔗 API
-This project uses TMDB API. Remember to keep your API key secure.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

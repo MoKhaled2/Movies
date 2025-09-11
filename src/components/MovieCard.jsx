@@ -1,22 +1,13 @@
-import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import toast from "react-hot-toast";
-import { Link } from 'react-router-dom';
+import WatchListContext from "../context/WatchListContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
   const imgBase = "https://image.tmdb.org/t/p/w300";
-  const [inWatchlist, setInWatchlist] = useState(false);
+  const { handleClick, watchlist } = useContext(WatchListContext);
 
-  const handleClick = () => {
-    setInWatchlist(!inWatchlist);
-
-    if (!inWatchlist) {
-      toast.success(`${movie.title} added to Watchlist ❤️`);
-    } else {
-      toast.error(`${movie.title} removed from Watchlist 💔`);
-    }
-  };
-  
+  const inWatchlist = watchlist.some((m) => m.id === movie.id);
 
   const getRateColor = (rate) => {
     if (rate >= 70) return "#21d07a";
@@ -29,14 +20,13 @@ export default function MovieCard({ movie }) {
   return (
     <div className="card h-100 border-0 shadow-sm">
       <div className="position-relative">
-     <Link to={`/movie/${movie.id}`}>
-     <img
-          src={imgBase + movie.poster_path}
-          className="card-img-top rounded"
-          alt={movie.title}
-        />
-     </Link>
-
+        <Link to={`/movie/${movie.id}`}>
+          <img
+            src={imgBase + movie.poster_path}
+            className="card-img-top rounded"
+            alt={movie.title}
+          />
+        </Link>
         <div
           className="position-absolute"
           style={{
@@ -76,7 +66,7 @@ export default function MovieCard({ movie }) {
             size={18}
             color={inWatchlist ? "red" : "gray"}
             style={{ cursor: "pointer" }}
-            onClick={handleClick}
+            onClick={() => handleClick(movie)}
           />
         </div>
       </div>
