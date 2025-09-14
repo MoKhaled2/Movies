@@ -15,16 +15,20 @@ export default function MovieCard({ movie }) {
     return "#db2360";
   };
 
-  const rate = Math.round(movie.vote_average * 10);
+  const rate = Math.round((movie.vote_average || 0) * 10);
 
   return (
-    <div className="card h-100 border-0 shadow-sm">
+    <div className="card h-100 border-0 shadow-sm movie-card">
       <div className="position-relative">
-        <Link to={`/movie/${movie.id}`}>
+        <Link to={`/movie/${movie.id}`}> 
           <img
-            src={imgBase + movie.poster_path}
+            src={
+              movie.poster_path
+                ? imgBase + movie.poster_path
+                : "https://via.placeholder.com/300x450?text=No+Image"
+            }
             className="card-img-top rounded"
-            alt={movie.title}
+            alt={movie.title || movie.name}
           />
         </Link>
         <div
@@ -58,10 +62,12 @@ export default function MovieCard({ movie }) {
             textOverflow: "ellipsis",
           }}
         >
-          {movie.title}
+          {movie.title || movie.name} {}
         </h5>
         <div className="d-flex justify-content-between align-items-center p-2">
-          <p className="text-muted small mb-0">{movie.release_date}</p>
+          <p className="text-muted small mb-0">
+            {movie.release_date || movie.first_air_date}
+          </p>
           <FaHeart
             size={18}
             color={inWatchlist ? "red" : "gray"}

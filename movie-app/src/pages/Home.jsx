@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
-
+import SearchBar from "../components/SearchBar";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
-
-
   const apiKey = "714601e14e7fed0133bc898c6e24aacc";
 
   useEffect(() => {
@@ -27,17 +25,11 @@ export default function Home() {
   }, [page]);
 
   return (
-    
     <div className="container mt-5 pt-5">
       <div className="p-4 bg-light border rounded text-center">
         <h2>Welcome to our movie app</h2>
         <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-        <input  
-          type="text"
-          className="form-control w-50 d-inline-block me-2"
-          placeholder="Search and explore..."
-        />
-        <button className="btn btn-warning">Search</button>
+        <SearchBar />
       </div>
 
       <h3 className="mt-5 mb-3">Now Playing</h3>
@@ -49,16 +41,18 @@ export default function Home() {
               <span className="visually-hidden">Loading...</span>
             </div>
           </div>
-        ) : (
+        ) : movies.length > 0 ? (
           movies.map((movie) => (
-            // console.log(movie),
             <div className="col-6 col-md-3 col-lg-2" key={movie.id}>
               <MovieCard movie={movie} />
             </div>
           ))
+        ) : (
+          <p className="text-center text-muted">No results found.</p>
         )}
       </div>
-      <Pagination page={page} setPage={setPage} totalPages={totalPages}/>
+
+      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
     </div>
   );
 }

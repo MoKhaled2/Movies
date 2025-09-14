@@ -56,3 +56,13 @@
     transform: scale(1);
   }
 }
+.movie-card {
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2; 
+}
+
