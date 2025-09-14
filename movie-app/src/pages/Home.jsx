@@ -25,7 +25,7 @@ export default function Home() {
   }, [page]);
 
   return (
-    <div className="container mt-5 pt-5">
+    <div className="container mt-5 pt-5" style={{ height: "100%" }}>
       <div className="p-4 bg-light border rounded text-center">
         <h2>Welcome to our movie app</h2>
         <p>Millions of movies, TV shows and people to discover. Explore now.</p>
@@ -34,7 +34,7 @@ export default function Home() {
 
       <h3 className="mt-5 mb-3">Now Playing</h3>
 
-      <div className="row g-3" style={{ minHeight: "400px" }}>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3" style={{ minHeight: "calc(100vh - 460px)" }}>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center w-100">
             <div className="spinner-border text-warning" role="status">
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
         ) : movies.length > 0 ? (
           movies.map((movie) => (
-            <div className="col-6 col-md-3 col-lg-2" key={movie.id}>
+            <div className="col" style={{ height: "100%" }} key={movie.id}>
               <MovieCard movie={movie} />
             </div>
           ))

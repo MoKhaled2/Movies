@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
-  const imgBase = "https://image.tmdb.org/t/p/w300";
+  const imgBase = "https://image.tmdb.org/t/p/w500";
   const { handleClick, watchlist } = useContext(WatchListContext);
 
   const inWatchlist = watchlist.some((m) => m.id === movie.id);
@@ -28,6 +28,7 @@ export default function MovieCard({ movie }) {
                 : "https://via.placeholder.com/300x450?text=No+Image"
             }
             className="card-img-top rounded"
+            style={{ height: "100%", maxHeight: "550px", cursor: "pointer", width: "100%" }}
             alt={movie.title || movie.name}
           />
         </Link>
