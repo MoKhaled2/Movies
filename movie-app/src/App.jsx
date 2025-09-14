@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import WatchList from "./pages/WatchList";
-import { Toaster } from "react-hot-toast";
+import Search from "./pages/Search";
+import { Toaster } from "react-hot-toast"; 
 import WatchListContext from "./context/WatchListContext";
 import { useState, useRef } from "react";
 import InfoPage from "./pages/InfoPage";
@@ -11,7 +12,7 @@ import toast from "react-hot-toast";
 
 export default function App() {
   const [watchlist, setWatchlist] = useState(
-    JSON.parse(localStorage.getItem("watchlist")) || []
+    JSON.parse(localStorage.getItem("watchlist")) || [] 
   );
 
   const MAX_TOASTS = 3;
@@ -68,7 +69,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/watchlist" element={<WatchList />} />
-          <Route path="/movie/:id" element={<InfoPage />} />  
+          <Route path="/movie/:id" element={<InfoPage />} /> 
+          <Route path="/search" element={<Search />} />
         </Routes>
 
         <Toaster
