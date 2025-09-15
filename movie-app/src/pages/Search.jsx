@@ -4,13 +4,14 @@ import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 export default function SearchResults() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const apiKey = "714601e14e7fed0133bc898c6e24aacc";
   const { search } = useLocation();
   const query = new URLSearchParams(search).get("query") || "";
   const navigate = useNavigate();

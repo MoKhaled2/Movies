@@ -3,12 +3,12 @@ import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 
+const apiKey = import.meta.env.VITE_API_KEY;
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
-  const apiKey = "714601e14e7fed0133bc898c6e24aacc";
 
   useEffect(() => {
     setLoading(true);
@@ -34,7 +34,10 @@ export default function Home() {
 
       <h3 className="mt-5 mb-3">Now Playing</h3>
 
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3" style={{ minHeight: "calc(100vh - 460px)" }}>
+      <div
+        className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3"
+        style={{ minHeight: "calc(100vh - 460px)" }}
+      >
         {loading ? (
           <div className="d-flex justify-content-center align-items-center w-100">
             <div className="spinner-border text-warning" role="status">
