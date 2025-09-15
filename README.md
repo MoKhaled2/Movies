@@ -2,6 +2,10 @@
 
 A responsive and feature-rich movie discovery application built with React and Vite, allowing users to browse, search, and manage their favorite movies.
 
+## 🌐 Live Demo
+
+**Website**: [https://movie-app-website1.netlify.app/](https://movie-app-website1.netlify.app/)  
+
 ## 🚀 Features
 
 - **Home Page**: Browse currently playing movies with pagination
